@@ -181,6 +181,7 @@ declare namespace Config {
   type WebpackOutput = Required<NonNullable<Configuration['output']>>;
 
   class Output extends ChainedMap<Config> {
+    asyncChunks(value: WebpackOutput['asyncChunks']): this;
     auxiliaryComment(value: WebpackOutput['auxiliaryComment']): this;
     charset(value: WebpackOutput['charset']): this;
     chunkFilename(value: WebpackOutput['chunkFilename']): this;
@@ -343,10 +344,15 @@ declare namespace Config {
   class Resolve<T = Config> extends ChainedMap<T> {
     alias: TypedChainedMap<this, { [key: string]: string | false | string[] }>;
     aliasFields: TypedChainedSet<this, WebpackResolve['aliasFields'][number]>;
+    conditionNames: TypedChainedSet<
+      this,
+      WebpackResolve['conditionNames'][number]
+    >;
     descriptionFiles: TypedChainedSet<
       this,
       WebpackResolve['descriptionFiles'][number]
     >;
+    extensionAlias: TypedChainedMap<this, { [key: string]: string[] }>;
     extensions: TypedChainedSet<this, WebpackResolve['extensions'][number]>;
     mainFields: TypedChainedSet<this, WebpackResolve['mainFields'][number]>;
     mainFiles: TypedChainedSet<this, WebpackResolve['mainFiles'][number]>;

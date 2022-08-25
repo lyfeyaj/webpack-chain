@@ -4,6 +4,7 @@ module.exports = class extends ChainedMap {
   constructor(parent) {
     super(parent);
     this.extend([
+      'asyncChunks',
       'auxiliaryComment',
       'charset',
       'chunkFilename',
